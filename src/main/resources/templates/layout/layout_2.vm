@@ -1,0 +1,12 @@
+<html>
+<head>
+    <title>$title</title>
+    #parse('/layout/resources.vm')
+</head>
+<body class="layui-layout-body">
+<div class="layui-body" style="text-align: center; vertical-align: middle;">
+    <!-- 内容主体区域 -->
+    $screen_content
+</div>
+</body>
+</html>
