@@ -15,6 +15,26 @@ import java.util.List;
 public class MyUserDetails implements UserDetails {
 	private long id;
 
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public void setAuthorities(List<GrantedAuthority> authorities) {
+		this.authorities = authorities;
+	}
+
 	private String password;
 
 	private String username;

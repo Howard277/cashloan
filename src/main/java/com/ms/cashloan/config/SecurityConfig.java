@@ -33,7 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers("/user/**").authenticated();
 		// 注意这里权限配置使用的是hasAuthority，而不是hasRole。它们的区别请进入定义中查看
 		http.authorizeRequests().antMatchers("/admin/**").hasAuthority(EnumRole.ADMIN.name());
-		http.authorizeRequests().and().formLogin().loginPage("/login").defaultSuccessUrl("/").failureUrl("/login");
+		http.authorizeRequests().and().formLogin().loginPage("/login/login").defaultSuccessUrl("/").failureUrl("/login/login");
 	}
 
 	/**
@@ -49,7 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		//在这里，将自定义的UserDetailsService注入
 		daoAuthenticationProvider.setUserDetailsService(myUserDetailService);
 		//设置密码加密方法
-		daoAuthenticationProvider.setPasswordEncoder(new BCryptPasswordEncoder());		
+		daoAuthenticationProvider.setPasswordEncoder(new BCryptPasswordEncoder());
 		auth.authenticationProvider(daoAuthenticationProvider);
 	}
 }

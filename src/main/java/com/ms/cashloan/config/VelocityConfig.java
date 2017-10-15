@@ -2,6 +2,7 @@ package com.ms.cashloan.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.view.velocity.VelocityLayoutViewResolver;
 import org.springframework.web.servlet.view.velocity.VelocityViewResolver;
 
 /**
@@ -15,14 +16,14 @@ public class VelocityConfig {
 
 	@Bean
 	public VelocityViewResolver getVelocityViewResolver() {
-		VelocityViewResolver resolver = new VelocityViewResolver();
+		VelocityLayoutViewResolver resolver = new VelocityLayoutViewResolver();
 		resolver.setSuffix(".vm");
 		resolver.setContentType("text/html;charset=utf-8");
 		resolver.setExposeRequestAttributes(true);
 		resolver.setExposeSessionAttributes(true);
 //    resolver.setRequestContextAttribute(REQUEST_CONTEXT_ATTRIBUTE)
 //    resolver.setToolboxConfigLocation(getToolboxConfigLocation)
-//		resolver.setLayoutUrl("layout/layout.vm")
+		resolver.setLayoutUrl("layout/layout.vm");
 		resolver.setOrder(0);
 		return resolver;
 	}

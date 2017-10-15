@@ -2,6 +2,7 @@
 #set($title="系统登录")
 <div style="background:url('/image/login_bg.png')">
     <form action="/login/login" method="post" class="layui-form" style="width:400px; height:200px;">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <div class="layui-form-item">
             <label class="layui-form-label">用户名</label>
             <div class="layui-input-block">

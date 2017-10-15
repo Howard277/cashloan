@@ -1,0 +1,16 @@
+项目框架spring boot + spring data + spring security + mysql + velocity
+项目使用maven打包
+
+权限配置
+使用spring security作为权限管理框架
+在login.vm中的form下添加如下代码保证csrf通过
+<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+用户信息表：user
+角色信息表：role
+用户角色关系表：userrole
+
+权限数据最终被组装到MyUserDetails类中，用户登录后会通过MyUserDetailService类来组装。
+
+
+
+
