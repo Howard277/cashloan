@@ -1,6 +1,7 @@
 package com.ms.cashloan.controller;
 
 import com.ms.cashloan.bean.EnumRole;
+import com.ms.cashloan.bean.MyUserDetails;
 import com.ms.cashloan.bean.User;
 import com.ms.cashloan.config.MySecurityUtils;
 import com.ms.cashloan.service.UserService;
@@ -36,12 +37,11 @@ public class UserController {
 	@RequestMapping(value = { "", "index" })
 	public String index(Model model) {
 		//获取用户名
-		UserDetails userdetails = securityUtils.getUserDetails();
-		String userName = userdetails.getUsername();
+		MyUserDetails userdetails = (MyUserDetails)securityUtils.getUserDetails();
 		//判断是否拥有管理员角色
 		boolean isadminrole = securityUtils.containRole(EnumRole.ADMIN);
 		
-		model.addAttribute("username", userName);
+		model.addAttribute("name", userdetails.getRealname());
 		model.addAttribute("isadminrole", isadminrole);
 		return "user/index";
 	}

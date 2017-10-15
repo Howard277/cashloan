@@ -50,6 +50,13 @@ public class MySecurityUtils {
 	}
 
 	/**
+	 * 清除登录信息上下文
+	 */
+	public void clearContext() {
+		SecurityContextHolder.clearContext();
+	}
+
+	/**
 	 * 判断是否包含某个角色
 	 * 
 	 * @param role

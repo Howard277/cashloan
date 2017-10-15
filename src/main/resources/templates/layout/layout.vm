@@ -3,18 +3,13 @@
 <title>$title</title>
 #parse('/layout/resources.vm')
 </head>
-<body class="layui-layout-body">
+<body class="layui-layout-body" style="background-color:#f2f2f2;">
 <div class="layui-layout layui-layout-admin">
     #parse('/layout/header.vm')
 
-    #parse('/layout/left.vm')
-
-    <div class="layui-body">
         <!-- 内容主体区域 -->
         $screen_content
-    </div>
 
-    #parse('/layout/footer.vm')
 </div>
 
 ##必须在最后添加layui.all.js

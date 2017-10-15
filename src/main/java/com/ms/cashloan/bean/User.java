@@ -20,6 +20,35 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	/**
+	 * 密码
+	 */
+	private String password;
+	/**
+	 * 用户名
+	 */
+	private String username;
+
+	/**
+	 * 用户有效定义 false为不可用  true为可用
+	 * 在mysql中使用tinyint定义该列，0表示false 1表示true。
+	 * 当数据库中为0时，用户无法登录。
+	 */
+	private boolean enabled;
+
+	/**
+	 * 真实姓名
+	 */
+	private String realname;
+
+	public String getRealname() {
+		return realname;
+	}
+
+	public void setRealname(String realname) {
+		this.realname = realname;
+	}
+
 
 	public long getId() {
 		return id;
@@ -53,14 +82,4 @@ public class User {
 		this.enabled = enabled;
 	}
 
-	private String password;
-
-	private String username;
-
-	/**
-	 * 用户有效定义 false为不可用  true为可用
-	 * 在mysql中使用tinyint定义该列，0表示false 1表示true。
-	 * 当数据库中为0时，用户无法登录。
-	 */
-	private boolean enabled;
 }

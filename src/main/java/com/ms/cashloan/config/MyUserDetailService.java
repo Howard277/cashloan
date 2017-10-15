@@ -38,6 +38,7 @@ public class MyUserDetailService implements UserDetailsService {
 			userDetails.setId(user.getId());
 			userDetails.setPassword(user.getPassword());
 			userDetails.setUsername(user.getUsername());
+			userDetails.setRealname(user.getRealname());
 		}
 
 		// 根据用户名查询用户权限信息

@@ -39,6 +39,8 @@ public class MyUserDetails implements UserDetails {
 
 	private String username;
 
+	private String realname;
+
 	private boolean enabled;
 	
 	private List<GrantedAuthority> authorities;
@@ -80,5 +82,13 @@ public class MyUserDetails implements UserDetails {
 		} else {
 			return false;
 		}
+	}
+
+	public String getRealname(){
+		return realname;
+	}
+
+	public void setRealname(String realname){
+		this.realname = realname;
 	}
 }

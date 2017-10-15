@@ -3,10 +3,8 @@
     <title>$title</title>
     #parse('/layout/resources.vm')
 </head>
-<body class="layui-layout-body">
-<div class="layui-body" style="text-align: center; vertical-align: middle;">
+<body class="layui-layout-body" style="background-color:#f2f2f2;">
     <!-- 内容主体区域 -->
     $screen_content
-</div>
 </body>
 </html>

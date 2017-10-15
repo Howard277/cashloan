@@ -1,27 +1,34 @@
 #set($layout="/layout/layout_2.vm")
 #set($title="系统登录")
-<div style="background:url('/image/login_bg.png')">
-    <form action="/login/login" method="post" class="layui-form" style="width:400px; height:200px;">
-        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-        <div class="layui-form-item">
-            <label class="layui-form-label">用户名</label>
-            <div class="layui-input-block">
-                <input type="text" name="username" required lay-verify="required" placeholder="请输入用户名"
-                       autocomplete="off" class="layui-input" width="200">
+<div style="width:600px;height:400px;position:relative;margin:0 auto;top:30%;">
+    <div style="width:200px;position:absolute;top:0;left:0;">
+        <img src="/image/login_image.gif" width="200px" height="200px">
+    </div>
+    <div style="width:400px;position:absolute;top:0;left:180;">
+        <form action="/login/login" method="post" class="layui-form"
+              style="width:400px;height:400px;">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            <p style="font-size:32px;font-family: 微软雅黑;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现金贷系统</p>
+            <br/>
+            <div class="layui-form-item">
+                <label class="layui-form-label">用户名</label>
+                <div class="layui-input-block">
+                    <input type="text" name="username" required lay-verify="required" placeholder="请输入用户名"
+                           autocomplete="off" class="layui-input" width="200">
+                </div>
             </div>
-        </div>
-        <div class="layui-form-item">
             <div class="layui-form-item">
                 <label class="layui-form-label">密码框</label>
-                <div class="layui-input-inline">
+                <div class="layui-input-block">
                     <input type="password" name="password" required lay-verify="required" placeholder="请输入密码"
                            autocomplete="off" class="layui-input" width="200">
                 </div>
             </div>
-        </div>
-        <div class="layui-form-item" style="text-align: center;">
-            <input type="submit" class="layui-btn layui-btn-radius"></input>
-            <input type="reset" class="layui-btn layui-btn-radius"></input>
-        </div>
-    </form>
+            <div class="layui-form-item" style="text-align: center;">
+                <input type="submit" class="layui-btn layui-btn-radius"></input>
+                <input type="reset" class="layui-btn layui-btn-radius"></input>
+            </div>
+        </form>
+    </div>
 </div>
+
