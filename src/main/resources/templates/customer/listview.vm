@@ -1,0 +1,30 @@
+#set($title="客户管理")
+<div>
+    <button class="layui-btn layui-btn-small" onclick="addCustomer()">
+        <i class="layui-icon">&#xe654;</i> 添加客户
+    </button>
+    <button class="layui-btn layui-btn-small">
+        <i class="layui-icon">&#xe642;</i> 编辑客户
+    </button>
+    <button class="layui-btn layui-btn-small">
+        <i class="layui-icon">&#xe640;</i> 删除客户
+    </button>
+</div>
+
+<table class="layui-table" lay-data="{width: 100%, height:332, url:'/customer/listdata', page:true, id:'idTest'}" lay-filter="demo">
+    <thead>
+    <tr>
+        <th lay-data="{checkbox:true, fixed: true}"></th>
+        <th lay-data="{field:'id', width:80, sort: true, fixed: true}">ID</th>
+        <th lay-data="{field:'name', width:80}">客户姓名</th>
+        <th lay-data="{field:'sex', width:80, sort: true}">性别</th>
+    </tr>
+    </thead>
+</table>
+
+<script>
+    function addCustomer() {
+        window.open("/customer/addview");
+    }
+    
+</script>

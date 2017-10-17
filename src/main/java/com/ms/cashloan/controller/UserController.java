@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
  * 用户控制类
@@ -36,7 +37,6 @@ public class UserController {
 
 	@RequestMapping(value = { "", "index" })
 	public String index(Model model) {
-		//获取用户名
 		MyUserDetails userdetails = (MyUserDetails)securityUtils.getUserDetails();
 		//判断是否拥有管理员角色
 		boolean isadminrole = securityUtils.containRole(EnumRole.ADMIN);
