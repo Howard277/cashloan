@@ -1,15 +1,15 @@
 <html>
 <head>
-<title>$title</title>
-#parse('/layout/resources.vm')
+    <title>$title</title>
+    #parse('/layout/resources.vm')
 </head>
 <body class="layui-layout-body" style="background-color:#f2f2f2;">
 <div class="layui-layout layui-layout-admin">
     #parse('/layout/header.vm')
-
+    <div style="background-color: #E9E9E9; width:100%;height: 100%;">
         <!-- 内容主体区域 -->
         $screen_content
-
+    </div>
 </div>
 
 ##必须在最后添加layui.all.js

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 import java.util.UUID;
@@ -27,7 +28,7 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	@Autowired
-	private MySecurityUtils securityUtils;
+	private ControllerUtils controllerUtils;
 
 	@ResponseBody
 	@RequestMapping(value = "findAll")
@@ -35,15 +36,16 @@ public class UserController {
 		return userService.findAll();
 	}
 
+	/**
+	 * 用户信息主页面
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = { "", "index" })
-	public String index(Model model) {
-		MyUserDetails userdetails = (MyUserDetails)securityUtils.getUserDetails();
-		//判断是否拥有管理员角色
-		boolean isadminrole = securityUtils.containRole(EnumRole.ADMIN);
-		
-		model.addAttribute("name", userdetails.getRealname());
-		model.addAttribute("isadminrole", isadminrole);
-		return "user/index";
+	public ModelAndView index(ModelAndView model) {
+		model.setViewName("user/index");
+		controllerUtils.addCommonInfo(model);
+		return model;
 	}
 
 }

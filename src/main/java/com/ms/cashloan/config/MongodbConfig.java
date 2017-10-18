@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 /**
  * Created by wuketao on 2017/10/13.
  */
-@Configuration
+//@Configuration
 public class MongodbConfig {
     @Value("${mongo.host}")
     String host;

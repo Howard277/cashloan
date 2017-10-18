@@ -11,7 +11,7 @@ import redis.clients.jedis.JedisPoolConfig;
 /**
  * Created by wuketao on 2017/10/13.
  */
-@Configuration
+//@Configuration
 public class RedisConfig {
     @Value("${redis.maxActive}")
     Integer maxActive;

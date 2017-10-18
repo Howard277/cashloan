@@ -21,6 +21,8 @@ import java.util.*;
 public class CustomerController {
     @Autowired
     private CustomerService customerService;
+    @Autowired
+    private ControllerUtils controllerUtils;
 
     /**
      * 客户列表视图
@@ -29,7 +31,7 @@ public class CustomerController {
     @RequestMapping(path="listview",method = RequestMethod.GET)
     public ModelAndView listView(){
         ModelAndView mav = new ModelAndView("/customer/listview");
-
+        controllerUtils.addCommonInfo(mav);
         return mav;
     }
 
@@ -55,6 +57,7 @@ public class CustomerController {
     @RequestMapping(path="addview",method = RequestMethod.GET)
     public ModelAndView addView(){
         ModelAndView mav = new ModelAndView("/customer/addview");
+        controllerUtils.addCommonInfo(mav);
 
         return mav;
     }

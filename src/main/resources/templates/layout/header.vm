@@ -2,7 +2,7 @@
     <div class="layui-logo" class="font-size:30px; color:white; ">现金贷系统</div>
     <!-- 头部区域（可配合layui已有的水平导航） -->
     <ul class="layui-nav layui-layout-left">
-        <li class="layui-nav-item"><a href="">客户管理</a></li>
+        <li class="layui-nav-item"><a href="/customer/listview">客户管理</a></li>
         <li class="layui-nav-item"><a href="">审批管理</a></li>
         <li class="layui-nav-item"><a href="">贷后管理</a></li>
         <li class="layui-nav-item"><a href="">统计查询</a></li>
