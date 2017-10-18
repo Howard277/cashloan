@@ -1,10 +1,10 @@
 #set($layout="/layout/layout_2.vm")
 #set($title="系统登录")
-<div style="width:600px;height:400px;position:relative;margin:0 auto;top:30%;background-image: url('/static/image/login_bg.gif');">
-    <div style="height:200px;width:200px;position:absolute;top:50;left:100;">
+<div style="width:700px;height:350px;position:relative;margin:0 auto;top:30%;background-image: url('/image/login_bg.gif');">
+    <div style="height:200px;width:200px;position:absolute;top:100;left:50;">
         <img src="/image/login_image.gif" width="200px" height="200px">
     </div>
-    <div style="position:absolute;top:50;left:250;">
+    <div style="position:absolute;top:100;left:250;">
         <form action="/login/login" method="post" class="layui-form"
               style="width:400px;height:400px;">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
