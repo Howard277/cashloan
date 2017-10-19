@@ -8,9 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+import java.lang.reflect.Array;
 import java.util.*;
 
 /**
@@ -45,6 +49,7 @@ public class CustomerController {
         //通过分页信息获取数据
         Page<Customer> pageresult = customerService.findAllByPage(pageable);
         //解析返回结果，获取单页数据及总数据量
+        List<Customer> listtt = pageresult.getContent();
         dataPage.setCount(new Long(pageresult.getTotalElements()).intValue());
         dataPage.setData(pageresult.getContent());
         return dataPage;
@@ -64,7 +69,9 @@ public class CustomerController {
 
     @RequestMapping(path="save",method = RequestMethod.POST)
     @ResponseBody
-    public Customer save(@RequestBody Customer customer){
+    public Customer save(HttpServletRequest request){
+        Customer customer = new Customer();
+        customer.setName(request.getParameter("name"));
         return customerService.save(customer);
     }
 }

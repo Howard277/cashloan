@@ -11,21 +11,63 @@
     </button>
 </div>
 <div id="maindiv">
-    <table class="layui-table" lay-data="{width: 100%, height:332, url:'/customer/listdata', page:true, id:'idTest'}"
-           lay-filter="demo">
-        <thead>
-        <tr>
-            <th lay-data="{checkbox:true, fixed: true}"></th>
-            <th lay-data="{field:'id', width:80, sort: true, fixed: true}">ID</th>
-            <th lay-data="{field:'name', width:80}">客户姓名</th>
-            <th lay-data="{field:'sex', width:80, sort: true}">性别</th>
-        </tr>
-        </thead>
-    </table>
+    <div class="demoTable">
+        搜索ID：
+        <div class="layui-inline">
+            <input class="layui-input" name="id" id="id" autocomplete="off">
+        </div>
+        <button class="layui-btn" data-type="reload">搜索</button>
+    </div>
+
+    <table class="layui-hide" id="table_customer" lay-filter="user"></table>
+
+    <script>
+        layui.use('table', function () {
+            var table = layui.table;
+
+            //方法级渲染
+            table.render({
+                elem: '#table_customer'
+                , url: '/customer/listdata/'
+                , cols: [[
+                    {checkbox: true, fixed: true}
+                    , {field: 'id', title: 'ID', width: 80, sort: true, fixed: true}
+                    , {field: 'name', title: '客户姓名', width: 80}
+                    , {field: 'cardid', title: '身份证号', width: 80, sort: true}
+                    , {field: 'birthday', title: '生日', width: 80, sort: true}
+                    , {field: 'sex', title: '性别', width: 80, sort: true}
+                    , {field: 'homeaddress', title: '家庭住址', width: 80, sort: true}
+                    , {field: 'phonenumber', title: '手机号', width: 80, sort: true}
+                    , {field: 'wechatname', title: '微信名', width: 80, sort: true}
+                    , {field: 'qqnumber', title: 'QQ号码', width: 80, sort: true}
+                ]]
+                , id: 'testReload'
+                , page: true
+                , height: 315
+            });
+
+            var $ = layui.$, active = {
+                reload: function () {
+                    table.reload('testReload', {
+                        where: {
+                            key: {
+                                id: $('#id').val()
+                            }
+                        }
+                    });
+                }
+            };
+
+            $('.demoTable .layui-btn').on('click', function () {
+                var type = $(this).data('type');
+                active[type] ? active[type].call(this) : '';
+            });
+        });
+    </script>
 </div>
 <script>
     function addCustomer() {
-        window.open("/customer/addview");
+        var value = window.showModalDialog("/customer/addview", window, "dialogWidth=200px;dialogHeight=400px");
     }
 
 </script>

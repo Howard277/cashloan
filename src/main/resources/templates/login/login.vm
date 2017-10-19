@@ -1,4 +1,4 @@
-#set($layout="/layout/layout_2.vm")
+#set($layout="/layout/layout_login.vm")
 #set($title="系统登录")
 <div style="width:700px;height:350px;position:relative;margin:0 auto;top:30%;background-image: url('/image/login_bg.gif');">
     <div style="height:200px;width:200px;position:absolute;top:100;left:50;">

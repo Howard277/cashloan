@@ -1,5 +1,6 @@
 ##注意：layer.js 一定要在jquery.js 之后引用
 <script src="/js/jquery-1.8.2.js"></script>
 <script src="/layer/layer.js"></script>
+<script src="/layui/layui.all.js"></script>
 <link rel="stylesheet" href="/layui/css/layui.css">
 <link rel="stylesheet" href="/css/cashloan.css">

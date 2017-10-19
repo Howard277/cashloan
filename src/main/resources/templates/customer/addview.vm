@@ -1,5 +1,8 @@
+#set($title="添加客户")
+#set($layout="/layout/layout_nothing.vm")
 <div id="maindiv">
-    <form class="layui-form" action="/customer/save">
+    <form class="layui-form">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         <div class="layui-form-item">
             <div class="layui-inline">
                 <label class="layui-form-label">id</label>
