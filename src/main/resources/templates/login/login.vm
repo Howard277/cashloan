@@ -7,7 +7,6 @@
     <div style="position:absolute;top:100;left:250;">
         <form action="/login/login" method="post" class="layui-form"
               style="width:400px;height:400px;">
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 ##            <p style="font-size:32px;font-family: 微软雅黑;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;现金贷系统</p>
             <br/>
             <div class="layui-form-item">
