@@ -23,5 +23,5 @@ public class RoleResource {
 
     private String rolename;
 
-    private String resourcename;
+    private String url;
 }

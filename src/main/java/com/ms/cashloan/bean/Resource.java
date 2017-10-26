@@ -21,7 +21,11 @@ public class Resource {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private String resourcename;
+    private String code;
+
+    private String name;
+
+    private String url;
 
     private String description;
 }

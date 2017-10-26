@@ -46,7 +46,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         for (RoleResource roleresource : listRoleResource) {
             String[] roles = roleresource.getRolename().split(",");
             for (int i = 0; i < roles.length; i++) {
-                http.authorizeRequests().antMatchers(roleresource.getResourcename()).hasAuthority(roles[i]);
+                http.authorizeRequests().antMatchers(roleresource.getUrl()).hasAuthority(roles[i]);
             }
         }
 //		http.authorizeRequests().antMatchers("/user/**").authenticated();

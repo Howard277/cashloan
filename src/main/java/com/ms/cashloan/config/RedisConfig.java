@@ -6,12 +6,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
+//import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 import redis.clients.jedis.JedisPoolConfig;
 
 /**
  * Created by wuketao on 2017/10/13.
  */
-//@Configuration
+@Configuration
+//@EnableRedisHttpSession
 public class RedisConfig {
     @Value("${redis.maxActive}")
     Integer maxActive;
@@ -38,6 +40,7 @@ public class RedisConfig {
         return config;
     }
 
+    @Bean
     public JedisConnectionFactory jedisConnectionFactory() {
         JedisConnectionFactory factory = new JedisConnectionFactory(getJedisPoolConfig());
         factory.setDatabase(db);
@@ -50,10 +53,13 @@ public class RedisConfig {
         return factory;
     }
 
+    @Autowired
+    private JedisConnectionFactory jedisConnectionFactory;
+
     @Bean
     public RedisTemplate<String, Object> redisTemplate() {
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate<String, Object>();
-        redisTemplate.setConnectionFactory(jedisConnectionFactory());
+        redisTemplate.setConnectionFactory(jedisConnectionFactory);
         return redisTemplate;
     }
 }
